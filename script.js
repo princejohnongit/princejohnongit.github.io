@@ -322,4 +322,155 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // ──────────────────────────────────────────────────────────
+  // 10. AMBIENT BACKGROUND MUSIC (Web Audio API)
+  // ──────────────────────────────────────────────────────────
+  const musicToggle = document.getElementById('music-toggle');
+  const musicIcon = document.getElementById('music-icon');
+  const musicLabel = document.getElementById('music-label');
+  let audioCtx = null;
+  let musicPlaying = false;
+  let masterGain = null;
+  let musicNodes = [];
+
+  function createAmbientMusic() {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = 0;
+    masterGain.connect(audioCtx.destination);
+
+    // Soft reverb via convolver with generated impulse response
+    const convolver = audioCtx.createConvolver();
+    const reverbLength = 3 * audioCtx.sampleRate;
+    const impulse = audioCtx.createBuffer(2, reverbLength, audioCtx.sampleRate);
+    for (let ch = 0; ch < 2; ch++) {
+      const data = impulse.getChannelData(ch);
+      for (let i = 0; i < reverbLength; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / reverbLength, 2.5);
+      }
+    }
+    convolver.buffer = impulse;
+
+    const reverbGain = audioCtx.createGain();
+    reverbGain.gain.value = 0.3;
+    convolver.connect(reverbGain);
+    reverbGain.connect(masterGain);
+
+    const dryGain = audioCtx.createGain();
+    dryGain.gain.value = 0.7;
+    dryGain.connect(masterGain);
+
+    // Dreamy pad layers — Cmaj7 chord (C3, E3, G3, B3)
+    const notes = [130.81, 164.81, 196.00, 246.94];
+    const detunes = [-5, 3, -2, 7];
+
+    notes.forEach((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      osc.detune.value = detunes[i];
+
+      const osc2 = audioCtx.createOscillator();
+      osc2.type = 'triangle';
+      osc2.frequency.value = freq * 0.999;
+      osc2.detune.value = -detunes[i];
+
+      // LFO for gentle volume swell
+      const lfo = audioCtx.createOscillator();
+      lfo.type = 'sine';
+      lfo.frequency.value = 0.08 + i * 0.03;
+      const lfoGain = audioCtx.createGain();
+      lfoGain.gain.value = 0.15;
+      lfo.connect(lfoGain);
+
+      const voiceGain = audioCtx.createGain();
+      voiceGain.gain.value = 0.06;
+      lfoGain.connect(voiceGain.gain);
+
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 800 + i * 100;
+      filter.Q.value = 0.5;
+
+      osc.connect(filter);
+      osc2.connect(filter);
+      filter.connect(voiceGain);
+      voiceGain.connect(dryGain);
+      voiceGain.connect(convolver);
+
+      osc.start();
+      osc2.start();
+      lfo.start();
+      musicNodes.push(osc, osc2, lfo);
+    });
+
+    // Subtle high sparkle
+    const sparkle = audioCtx.createOscillator();
+    sparkle.type = 'sine';
+    sparkle.frequency.value = 523.25;
+    const sparkleGain = audioCtx.createGain();
+    sparkleGain.gain.value = 0.012;
+    const sparkleLfo = audioCtx.createOscillator();
+    sparkleLfo.type = 'sine';
+    sparkleLfo.frequency.value = 0.15;
+    const sparkleLfoGain = audioCtx.createGain();
+    sparkleLfoGain.gain.value = 0.01;
+    sparkleLfo.connect(sparkleLfoGain);
+    sparkleLfoGain.connect(sparkleGain.gain);
+
+    const sparkleFilter = audioCtx.createBiquadFilter();
+    sparkleFilter.type = 'lowpass';
+    sparkleFilter.frequency.value = 1200;
+
+    sparkle.connect(sparkleFilter);
+    sparkleFilter.connect(sparkleGain);
+    sparkleGain.connect(convolver);
+
+    sparkle.start();
+    sparkleLfo.start();
+    musicNodes.push(sparkle, sparkleLfo);
+  }
+
+  function fadeIn() {
+    if (masterGain) {
+      masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+      masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(0.35, audioCtx.currentTime + 2);
+    }
+  }
+
+  function fadeOut() {
+    if (masterGain) {
+      masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+      masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1.5);
+    }
+  }
+
+  if (musicToggle) {
+    musicToggle.addEventListener('click', () => {
+      if (!audioCtx) {
+        createAmbientMusic();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      if (!musicPlaying) {
+        fadeIn();
+        musicPlaying = true;
+        musicToggle.classList.add('playing');
+        musicIcon.textContent = '🔊';
+        musicLabel.textContent = 'Music On';
+      } else {
+        fadeOut();
+        musicPlaying = false;
+        musicToggle.classList.remove('playing');
+        musicIcon.textContent = '🔇';
+        musicLabel.textContent = 'Play Music';
+      }
+    });
+  }
+
 });
