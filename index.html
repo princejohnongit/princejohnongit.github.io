@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince John — AI & Full-Stack Developer</title>
+    <meta name="description" content="Prince John is an AI/ML engineer and full-stack developer building impactful solutions in AI, IoT, and Blockchain. B.Tech student, hackathon winner, and Cognizant-trained professional.">
+    <meta name="keywords" content="Prince John, AI Developer, Machine Learning, Full-Stack Developer, Portfolio, AI/ML Engineer">
+    <meta name="author" content="Prince John">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prince John — AI & Full-Stack Developer">
+    <meta property="og:description" content="Building impactful AI solutions. Explore my projects in ML, IoT, Blockchain, and full-stack development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://princejohnongit.github.io">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#hero" class="nav-logo">PJ.</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about" data-nav="about">About</a></li>
+                <li><a href="#experience" data-nav="experience">Experience</a></li>
+                <li><a href="#projects" data-nav="projects">Projects</a></li>
+                <li><a href="#skills" data-nav="skills">Skills</a></li>
+                <li><a href="#hackathons" data-nav="hackathons">Hackathons</a></li>
+                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="hero">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Open to opportunities
+            </div>
+            <h1 class="hero-title">
+                Hi, I'm <span class="gradient-text">Prince John</span>
+            </h1>
+            <div class="hero-role">
+                <span class="typed-text" id="typed-text"></span><span class="cursor">|</span>
+            </div>
+            <p class="hero-description">
+                Results-driven developer bridging AI and full-stack engineering. I build user-centric applications that solve real problems in education, finance, and the circular economy.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    View Projects
+                </a>
+                <a href="mailto:princejohn1700@gmail.com" class="btn btn-outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Get In Touch
+                </a>
+            </div>
+            <div class="hero-socials">
+                <a href="https://github.com/princejohnongit" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/prince-john-ing" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="mailto:princejohn1700@gmail.com" class="social-link" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Who I Am</span>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Building at the intersection of AI, engineering, and real-world impact.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        I'm <span class="highlight">Prince John</span>, a B.Tech student specializing in 
+                        <span class="highlight">Artificial Intelligence & Machine Learning</span> at 
+                        Mar Athanasius College of Engineering, Kerala. I'm passionate about building 
+                        technology that makes a tangible difference.
+                    </p>
+                    <p>
+                        From AI-powered grading systems to IoT smart shelves, I bridge the gap between 
+                        cutting-edge research and practical applications. My experience at 
+                        <span class="highlight">Cognizant</span> sharpened my skills in ML, NLP, and 
+                        data engineering — and every hackathon I enter pushes me to build faster, think 
+                        deeper, and solve harder problems.
+                    </p>
+                    <p>
+                        I thrive in collaborative environments where ideas become prototypes and prototypes 
+                        become products. Whether it's fine-tuning LLMs, designing agentic workflows, or 
+                        wiring up ESP32 cameras — I'm all in.
+                    </p>
+                    <div class="about-philosophy">
+                        "Tech for good. Code for impact. Building meaningful things, one idea at a time."
+                    </div>
+                </div>
+                <div class="stats-grid reveal reveal-delay-2">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="17">0</div>
+                        <div class="stat-label">GitHub Repos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="8">0</div>
+                        <div class="stat-label">Projects Built</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Hackathons</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Career Path</span>
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Real-world training that sharpened my engineering edge.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jan 2026 — Apr 2026</div>
+                    <div class="timeline-card">
+                        <h3>Training Intern</h3>
+                        <div class="company">Cognizant · Siruseri, Chennai</div>
+                        <ul>
+                            <li>Trained on Machine Learning under the AIA (AI & Analytics) Service Line</li>
+                            <li>Completed 2 hands-on projects and earned 17 Udemy certifications</li>
+                            <li>Built expertise in Data Warehousing, PySpark, GitHub Copilot, ML, NLP, and Feature Engineering</li>
+                            <li>Applied real-world ML pipelines to structured and unstructured data problems</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Jul 2023 — Aug 2023</div>
+                    <div class="timeline-card">
+                        <h3>Assisted Intern</h3>
+                        <div class="company">Teachnook Edtech · Online</div>
+                        <ul>
+                            <li>Learned and implemented foundational Machine Learning techniques</li>
+                            <li>Gained hands-on experience with supervised learning algorithms and data preprocessing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">From AI-powered platforms to IoT smart systems — each project solves a real problem.</p>
+            </div>
+            <div class="projects-grid">
+
+                <!-- GraderAI -->
+                <div class="project-card reveal">
+                    <div class="project-card-header">
+                        <span class="project-icon">🎯</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit/graderai" target="_blank" rel="noopener" aria-label="View GraderAI on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>GraderAI</h3>
+                    <p>AI-native answer sheet evaluation platform using RAG and agentic workflows. Automates grading with LLMs, OCR, and vector search for accurate, explainable scoring.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Pinecone</span>
+                        <span class="project-tag">LangGraph</span>
+                        <span class="project-tag">LLM</span>
+                        <span class="project-tag">Tesseract</span>
+                    </div>
+                </div>
+
+                <!-- Repart -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-card-header">
+                        <span class="project-icon">🔁</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit" target="_blank" rel="noopener" aria-label="View Repart on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Repart</h3>
+                    <p>Agentic solution for upcycling in the circular economy. Connects users with reusable parts, promotes sustainability through AI-driven recommendations and automated workflows.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">n8n</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Django</span>
+                        <span class="project-tag">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- SupFlow -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-card-header">
+                        <span class="project-icon">⛓️</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit" target="_blank" rel="noopener" aria-label="View SupFlow on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>SupFlow</h3>
+                    <p>Democracy in supply chains. A smart platform integrating AI + blockchain to enable transparency, user-driven decisions, and government collaboration. Built at .hack();_ 2024.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Blockchain</span>
+                        <span class="project-tag">Supply Chain</span>
+                    </div>
+                </div>
+
+                <!-- SmartBud -->
+                <div class="project-card reveal reveal-delay-3">
+                    <div class="project-card-header">
+                        <span class="project-icon">💰</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit/BUDai_HFT" target="_blank" rel="noopener" aria-label="View SmartBud on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>SmartBud (BUDai)</h3>
+                    <p>Your personal finance guide. Generates optimal financial plans based on spending habits and financial health score. Built from scratch in 24 hours at HFT 2024.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Finance AI</span>
+                    </div>
+                </div>
+
+                <!-- ElderGuard -->
+                <div class="project-card reveal">
+                    <div class="project-card-header">
+                        <span class="project-icon">🛡️</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit/ElderGuard" target="_blank" rel="noopener" aria-label="View ElderGuard on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>ElderGuard</h3>
+                    <p>AI-based monitoring system ensuring safety and well-being of senior citizens with emergency alerts, activity tracking, and real-time health monitoring. Built at Hackify Hackathon.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">HealthTech</span>
+                    </div>
+                </div>
+
+                <!-- SmartShelf -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-card-header">
+                        <span class="project-icon">📦</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit/SmartShelf-using-AIoT" target="_blank" rel="noopener" aria-label="View SmartShelf on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>SmartShelf</h3>
+                    <p>Image-based smart commercial shelf tracking for supermarkets. Uses ESP32-CAM and AI-powered image processing with Roboflow to automate inventory monitoring via event triggers.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">ESP32-CAM</span>
+                        <span class="project-tag">Roboflow</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">IoT</span>
+                    </div>
+                </div>
+
+                <!-- AI Research Agent -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-card-header">
+                        <span class="project-icon">🔬</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit/AI_Research_Agent" target="_blank" rel="noopener" aria-label="View AI Research Agent on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>AI Research Agent</h3>
+                    <p>An agentic helper for academic research. Automates literature discovery, summarization, and synthesis using LangChain-powered LLM orchestration with structured outputs.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">LangChain</span>
+                        <span class="project-tag">Pydantic</span>
+                        <span class="project-tag">LLM</span>
+                        <span class="project-tag">Agents</span>
+                    </div>
+                </div>
+
+                <!-- Deep Learning Projects -->
+                <div class="project-card reveal reveal-delay-3">
+                    <div class="project-card-header">
+                        <span class="project-icon">🧠</span>
+                        <div class="project-links">
+                            <a href="https://github.com/princejohnongit/DeepLearning-S7-AI-ML-KTU-Lab" target="_blank" rel="noopener" aria-label="View Deep Learning Projects on GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Deep Learning Lab</h3>
+                    <p>Collection of trained deep learning models across CIFAR-10, MNIST, and IMDB datasets. Covers architectures from basic MLPs to advanced CNNs, RNNs, LSTMs, and GRUs with regularization.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">CNN</span>
+                        <span class="project-tag">VGG-19</span>
+                        <span class="project-tag">RNN</span>
+                        <span class="project-tag">LSTM</span>
+                        <span class="project-tag">GRU</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">What I Know</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">A versatile toolkit spanning AI, full-stack, and hardware.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon blue">💻</div>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Dart</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">C</span>
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">R</span>
+                        <span class="skill-item">HTML/CSS</span>
+                        <span class="skill-item">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal reveal-delay-1">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon violet">🤖</div>
+                        <h3>AI & Machine Learning</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-item">Deep Learning</span>
+                        <span class="skill-item">NLP</span>
+                        <span class="skill-item">LLMs</span>
+                        <span class="skill-item">Computer Vision</span>
+                        <span class="skill-item">RAG</span>
+                        <span class="skill-item">Agentic AI</span>
+                        <span class="skill-item">Feature Engineering</span>
+                        <span class="skill-item">Model Training</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal reveal-delay-2">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon cyan">⚙️</div>
+                        <h3>Frameworks & Tools</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Django</span>
+                        <span class="skill-item">Flutter</span>
+                        <span class="skill-item">LangChain</span>
+                        <span class="skill-item">LangGraph</span>
+                        <span class="skill-item">n8n</span>
+                        <span class="skill-item">PySpark</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal reveal-delay-3">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon pink">🗃️</div>
+                        <h3>Databases & Cloud</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">Pinecone</span>
+                        <span class="skill-item">Kubernetes</span>
+                        <span class="skill-item">Data Warehousing</span>
+                        <span class="skill-item">DBMS</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal reveal-delay-4">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon emerald">🔌</div>
+                        <h3>IoT & Hardware</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-item">ESP32-CAM</span>
+                        <span class="skill-item">Xiao ESP32S3</span>
+                        <span class="skill-item">Roboflow</span>
+                        <span class="skill-item">Tesseract OCR</span>
+                        <span class="skill-item">Smart Sensors</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal reveal-delay-5">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon blue">🧩</div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-item">Communication</span>
+                        <span class="skill-item">Collaboration</span>
+                        <span class="skill-item">Team Management</span>
+                        <span class="skill-item">Public Speaking</span>
+                        <span class="skill-item">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HACKATHONS SECTION ==================== -->
+    <section class="section" id="hackathons">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Compete & Create</span>
+                <h2 class="section-title">Hackathon Highlights</h2>
+                <p class="section-subtitle">Where pressure meets creativity — my best work under time constraints.</p>
+            </div>
+            <div class="hackathons-grid">
+                <div class="hackathon-card reveal">
+                    <span class="hackathon-emoji">🥈</span>
+                    <h3>ASAP Idea Fest</h3>
+                    <div class="hackathon-date">December 2024</div>
+                    <p>Won 2nd Prize for a sustainable supply chain solution using smart, green tech and data-led planning to reduce environmental impact.</p>
+                    <span class="hackathon-badge winner">🏆 2nd Prize Winner</span>
+                </div>
+                <div class="hackathon-card reveal reveal-delay-1">
+                    <span class="hackathon-emoji">💡</span>
+                    <h3>.hack();_ 2024</h3>
+                    <div class="hackathon-date">2024</div>
+                    <p>Built SupFlow — an AI + blockchain-based platform that brings democracy and transparency to supply chains, empowering citizen oversight.</p>
+                    <span class="hackathon-badge participant">🚀 Project Shipped</span>
+                </div>
+                <div class="hackathon-card reveal reveal-delay-2">
+                    <span class="hackathon-emoji">⏱️</span>
+                    <h3>HFT-2024 (Hack for Tomorrow)</h3>
+                    <div class="hackathon-date">2024</div>
+                    <p>Created SmartBud — a personal finance planning app generating optimal budgets based on spending habits. Built entirely from scratch in just 24 hours.</p>
+                    <span class="hackathon-badge participant">⚡ 24hr Build</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CERTIFICATIONS & EDUCATION ==================== -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Credentials</span>
+                <h2 class="section-title">Certifications & Education</h2>
+                <p class="section-subtitle">Continuous learning across AI, cloud, and developer tools.</p>
+            </div>
+
+            <!-- Certifications -->
+            <div class="certs-list">
+                <div class="cert-item reveal">
+                    <div class="cert-icon">🏅</div>
+                    <div class="cert-info">
+                        <h3>SAP Certified Associate — SAP Generative AI Developer</h3>
+                        <span class="cert-issuer">SAP</span>
+                    </div>
+                    <span class="cert-date">Sep 2025</span>
+                </div>
+                <div class="cert-item reveal reveal-delay-1">
+                    <div class="cert-icon">☁️</div>
+                    <div class="cert-info">
+                        <h3>Introduction to Kubernetes & Cloud Native Technologies</h3>
+                        <span class="cert-issuer">edX</span>
+                    </div>
+                    <span class="cert-date">Jun 2024</span>
+                </div>
+                <div class="cert-item reveal reveal-delay-2">
+                    <div class="cert-icon">🐍</div>
+                    <div class="cert-info">
+                        <h3>Joy of Computing Using Python</h3>
+                        <span class="cert-issuer">NPTEL</span>
+                    </div>
+                    <span class="cert-date">Apr 2024</span>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div style="margin-top: 64px;">
+                <div class="education-card reveal">
+                    <span class="edu-icon">🎓</span>
+                    <h3>Mar Athanasius College of Engineering</h3>
+                    <div class="degree">B.Tech in Artificial Intelligence & Machine Learning</div>
+                    <div class="edu-details">Kothamangalam, Kerala, India · Expected Jul 2026</div>
+                    <span class="cgpa">CGPA: 8.63</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Reach Out</span>
+                <h2 class="section-title">Let's Build Something Together</h2>
+                <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to be part of something impactful.</p>
+            </div>
+            <div class="contact-content reveal">
+                <div class="contact-links-grid">
+                    <a href="mailto:princejohn1700@gmail.com" class="contact-btn">
+                        <span class="contact-icon">📧</span>
+                        princejohn1700@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/prince-john-ing" target="_blank" rel="noopener" class="contact-btn">
+                        <span class="contact-icon">💼</span>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/princejohnongit" target="_blank" rel="noopener" class="contact-btn">
+                        <span class="contact-icon">🐙</span>
+                        GitHub
+                    </a>
+                    <a href="tel:+919400206726" class="contact-btn">
+                        <span class="contact-icon">📱</span>
+                        +91 9400206726
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <span class="footer-text">
+                Built with <span class="heart">♥</span> by Prince John · © 2026
+            </span>
+            <div class="footer-links">
+                <a href="https://github.com/princejohnongit" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/prince-john-ing" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:princejohn1700@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
