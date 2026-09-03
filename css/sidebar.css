@@ -1,0 +1,282 @@
+/* ============================================================
+   SIDEBAR — Vertical Left Navigation with Glider Indicator
+   ============================================================ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width-expanded);
+  height: 100vh;
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-right: var(--glass-border);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  transition: transform var(--transition-normal);
+  overflow: hidden;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.03);
+}
+
+/* Logo */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0 28px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.sidebar-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
+}
+
+/* Navigation */
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 12px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scrollbar for sidebar nav */
+.sidebar-nav::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Glider Indicator */
+.sidebar-glider {
+  position: absolute;
+  left: 8px;
+  width: calc(100% - 16px);
+  height: 44px;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  border-radius: 12px;
+  transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.sidebar-glider.active {
+  opacity: 1;
+}
+
+/* Nav Items */
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 12px;
+  transition: all var(--transition-normal);
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.sidebar-nav-item:hover {
+  color: var(--text-primary);
+}
+
+.sidebar-nav-item.active {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.sidebar-nav-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.sidebar-nav-item:hover .sidebar-nav-icon {
+  transform: scale(1.15);
+}
+
+.sidebar-nav-item.active .sidebar-nav-icon {
+  transform: scale(1.2);
+}
+
+.sidebar-nav-label {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition: color var(--transition-normal);
+}
+
+/* CTA item (Let's Talk) */
+.sidebar-nav-item.nav-cta-item {
+  margin-top: 8px;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.sidebar-nav-item.nav-cta-item:hover {
+  background: var(--accent-blue);
+  color: #ffffff;
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+/* Sidebar Bottom Section */
+.sidebar-bottom {
+  padding: 12px;
+  border-top: var(--glass-border);
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+/* Music toggle in sidebar */
+.sidebar-music-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+.sidebar-music-btn:hover {
+  color: var(--accent-blue);
+  border-color: rgba(220, 38, 38, 0.15);
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.sidebar-music-btn.playing {
+  color: var(--accent-blue);
+  border-color: rgba(220, 38, 38, 0.2);
+  background: rgba(220, 38, 38, 0.06);
+}
+
+.sidebar-music-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.sidebar-music-btn.playing .sidebar-music-icon {
+  animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+.sidebar-music-label {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  transition: color var(--transition-normal);
+}
+
+/* Equalizer bars animation */
+.eq-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-music-btn.playing .eq-bars {
+  opacity: 1;
+}
+
+.eq-bar {
+  width: 3px;
+  background: var(--accent-blue);
+  border-radius: 2px;
+  animation: eqBounce 0.8s ease-in-out infinite alternate;
+}
+
+.eq-bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+.eq-bar:nth-child(2) { height: 10px; animation-delay: 0.15s; }
+.eq-bar:nth-child(3) { height: 4px; animation-delay: 0.3s; }
+.eq-bar:nth-child(4) { height: 12px; animation-delay: 0.1s; }
+
+@keyframes eqBounce {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Mobile sidebar: hidden, replaced with bottom nav */
+.mobile-nav-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1001;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.mobile-nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+.mobile-nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.mobile-nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}

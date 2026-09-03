@@ -1,0 +1,83 @@
+/* ============================================================
+   MODAL — Hire Me Modal
+   ============================================================ */
+.hire-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.hire-modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.hire-modal-card {
+  background: var(--bg-primary);
+  padding: 48px 40px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+  transform: translateY(24px) scale(0.95);
+  transition: transform 0.35s ease;
+  border: 1px solid var(--border-subtle);
+}
+
+.hire-modal-overlay.active .hire-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.hire-modal-emoji {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.hire-modal-card h3 {
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hire-modal-card p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+}
+
+.hire-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-size: 1rem;
+}
+
+.hire-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+}
+
+.hire-modal-close:hover {
+  color: var(--text-primary);
+  transform: scale(1.15);
+}

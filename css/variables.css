@@ -1,0 +1,66 @@
+/* ============================================================
+   CSS DESIGN TOKENS — Variables & Custom Properties
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  /* Colors — White & Red Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: rgba(255, 240, 240, 0.9);
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a5a;
+  --text-muted: #7a7a8a;
+
+  --accent-blue: #dc2626;
+  --accent-violet: #b91c1c;
+  --accent-cyan: #ef4444;
+  --accent-pink: #dc2626;
+  --accent-emerald: #dc2626;
+
+  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  --gradient-hero: linear-gradient(180deg, #ffffff 0%, #fff5f5 60%, #ffffff 100%);
+  --gradient-card-border: linear-gradient(135deg, rgba(220, 38, 38, 0.4), rgba(185, 28, 28, 0.4));
+  --gradient-glow: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(220, 38, 38, 0.04), transparent 40%);
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-accent: rgba(220, 38, 38, 0.3);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --section-padding: 80px 0;
+  --container-max: 1200px;
+  --container-padding: 0 24px;
+
+  /* Sidebar */
+  --sidebar-width-collapsed: 72px;
+  --sidebar-width-expanded: 220px;
+
+  /* Effects */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 28px;
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 12px 40px rgba(220, 38, 38, 0.1);
+  --shadow-glow-blue: 0 0 30px rgba(220, 38, 38, 0.12);
+  --shadow-glow-violet: 0 0 30px rgba(185, 28, 28, 0.12);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Glassmorphism */
+  --glass-blur: blur(16px);
+  --glass-border: 1px solid rgba(0, 0, 0, 0.08);
+}
