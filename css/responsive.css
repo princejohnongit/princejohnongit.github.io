@@ -5,7 +5,7 @@
 /* Tablet & smaller desktop */
 @media (max-width: 1024px) {
   .hero-content {
-    flex-direction: column-reverse;
+    flex-direction: column;
     text-align: center;
     gap: 40px;
     padding: 0 24px;
@@ -85,7 +85,7 @@
     grid-template-columns: 1fr;
   }
 
-  .skills-grid {
+  #leadership-interests .skills-grid {
     grid-template-columns: 1fr;
   }
 

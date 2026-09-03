@@ -27,7 +27,8 @@ function renderSidebar() {
 
   return `
     <nav class="sidebar" id="sidebar">
-      <a href="#hero" class="sidebar-logo">
+      <a href="#hero" class="sidebar-logo" aria-label="${d.personal.name}">
+        ${d.personal.logoImage ? `<img src="${d.personal.logoImage}" alt="${d.personal.name}" class="sidebar-logo-img" />` : ''}
         <span class="sidebar-logo-text">${d.personal.logoText}</span>
       </a>
       <div class="sidebar-nav">
@@ -61,6 +62,13 @@ function renderHero() {
     <section class="hero" id="hero">
       <canvas id="particle-canvas"></canvas>
       <div class="hero-content">
+        <div class="hero-portrait">
+          <div class="hero-portrait-wrapper">
+            <img src="${d.portraitImage}" alt="${d.name}" class="hero-portrait-img" />
+          </div>
+          <div class="hero-portrait-dots"></div>
+          <div class="hero-portrait-ring"></div>
+        </div>
         <div class="hero-text">
           <div class="hero-badge">
             <span class="pulse-dot"></span>
@@ -89,13 +97,7 @@ function renderHero() {
             <a href="mailto:${d.email}" class="social-link" aria-label="Email">${EMAIL_SVG}</a>
           </div>
         </div>
-        <div class="hero-portrait">
-          <div class="hero-portrait-wrapper">
-            <img src="${d.portraitImage}" alt="${d.name}" class="hero-portrait-img" />
-          </div>
-          <div class="hero-portrait-dots"></div>
-          <div class="hero-portrait-ring"></div>
-        </div>
+        
       </div>
       <div class="scroll-indicator">
         <span>Scroll</span>
@@ -423,7 +425,10 @@ function renderPersonalLife() {
     <div class="pl-timeline-item">
       <div class="pl-timeline-dot"></div>
       <div class="pl-timeline-content">
-        <span class="pl-timeline-date">${item.date}</span>
+        <div class="pl-timeline-meta">
+          <span class="pl-timeline-date">${item.date}</span>
+          ${item.location ? `<span class="pl-timeline-location"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>${item.location}</span>` : ''}
+        </div>
         <h3>${item.title}</h3>
         <p>${item.description}</p>
       </div>
@@ -447,13 +452,14 @@ function renderPersonalLife() {
             <p class="section-subtitle">${d.subtitle}</p>
           </div>
           <div class="personal-timeline reveal">${timelineItems}</div>
-        </div>
-        <div class="pl-scroll-gradient" id="pl-scroll-gradient">
-          <span class="pl-scroll-text">Scroll down to see more</span>
-          <svg class="pl-scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
+          <div class="pl-scroll-gradient reveal" id="pl-scroll-gradient">
+            <span class="pl-scroll-text">Want to see more of my personal life?</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Click here or scroll down to unlock</span>
+            <svg class="pl-scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
         </div>
       </div>
     </div>`;

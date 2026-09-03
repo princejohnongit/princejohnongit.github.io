@@ -8,6 +8,7 @@ const PORTFOLIO_DATA = {
   personal: {
     name: 'Prince John',
     logoText: 'PJ.',
+    logoImage: 'assets/logo.png',
     heroGreeting: "Hi, I'm",
     badgeText: 'Open to opportunities',
     description:
@@ -210,7 +211,7 @@ const PORTFOLIO_DATA = {
         name: 'IoT & Hardware',
         icon: '🔌',
         colorClass: 'emerald',
-        items: ['ESP32-CAM', 'Xiao ESP32S3', 'Roboflow', 'Tesseract OCR', 'Smart Sensors'],
+        items: ['Raspberry Pi ZeroW', 'Xiao ESP32 S3', 'Roboflow', 'Tesseract OCR', 'Smart Sensors'],
       },
       {
         name: 'Soft Skills',
@@ -224,12 +225,6 @@ const PORTFOLIO_DATA = {
         colorClass: 'orange',
         items: ['Designing Applications', 'Writing Code', 'Debugging'],
       },
-      {
-        name: 'Languages',
-        icon: '🗣️',
-        colorClass: 'yellow',
-        items: ['English (Fluent)', 'Malayalam (Native)', 'Hindi (Basic)', 'Tamil (Basic)'],
-      },
     ],
   },
 
@@ -240,7 +235,7 @@ const PORTFOLIO_DATA = {
     subtitle: 'Where pressure meets creativity — my best work under time constraints.',
     items: [
       {
-        name: 'ASAP Idea Fest Ideathon',
+        name: 'Idea Fest by ASAP',
         emoji: '🥈',
         date: 'December 2024',
         description: 'Won 2nd Prize for a sustainable supply chain solution using smart, green tech and data-led planning to reduce environmental impact.',
@@ -248,7 +243,7 @@ const PORTFOLIO_DATA = {
         badgeClass: 'winner',
       },
       {
-        name: '.hack();_ 2024',
+        name: '.hack();_ 2024 by IEEE MACE',
         emoji: '💡',
         date: '2024',
         description: 'Built SupFlow — an AI + blockchain-based platform that brings democracy and transparency to supply chains, empowering citizen oversight.',
@@ -256,7 +251,7 @@ const PORTFOLIO_DATA = {
         badgeClass: 'participant',
       },
       {
-        name: 'HFT-2024 (Hack for Tomorrow)',
+        name: 'HFT-2024 by Excel MEC',
         emoji: '⏱️',
         date: '2024',
         description: 'Created SmartBud — a personal finance planning app generating optimal budgets based on spending habits. Built entirely from scratch in just 24 hours.',
@@ -268,17 +263,26 @@ const PORTFOLIO_DATA = {
         emoji: '💊',
         date: '2024',
         description: 'Mobile app to monitor, track, and help users reduce drug consumption through analytics and gamification.',
-        badge: '📱 HealthTech',
+        badge: '4th Position/800',
         badgeClass: 'participant',
       },
       {
-        name: '.hack();_ 2025',
+        name: '.hack();_ 2025 by IEEE',
         emoji: '💡',
         date: '2025',
         description: 'Agentic solution for upcycling in the circular economy. Connects users with reusable parts, promotes sustainability through AI-driven recommendations and automated workflows.',
         badge: '🚀 Project Shipped',
         badgeClass: 'participant',
+      },
+      {
+        name: 'Hackify 2025 by IEDC MACE',
+        emoji: '🕵️',
+        date: '2025',
+        description: 'Hack the tech to build better solution to fight crimes, we moved forward with a concept of caretaking app which has surveillance and assistance capabilites',
+        badge: 'Proof of Concept',
+        badgeClass: 'participant',
       }
+
     ],
   },
 
@@ -401,14 +405,23 @@ const PORTFOLIO_DATA = {
       {
         date: '21st May 2004, 7:45 PM',
         title: 'The Beginning',
+        location: 'Bishop Vayalil Medical Centre, Moolamattom',
         description: 'Born at Bishop Vayalil Medical Centre, Moolamattom, Kerala.',
       },
       {
         date: 'Age 3',
-        title: 'Joined Kindergarten',
+        title: 'Joined LKG',
+        location: 'St.Marthas Nursery School, Moolamattom',
         description:
           'Even though underage, I had to repeat Lower Kindergarten since I was underage — a soft-hearted silent kid, who is absolutely kind.',
       },
+      {
+        date: 'Age 4',
+        title: 'Again in LKG',
+        location: 'St.Marthas Nursery School, Moolamattom',
+        description: 'Because i failed Due to lack of attention and interest toward at such young age, i decided to stayback'
+
+      }
     ],
   },
 

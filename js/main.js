@@ -33,12 +33,12 @@ function initCourseworkToggle() {
     const isExpanded = container.classList.toggle('expanded');
     btn.setAttribute('aria-expanded', isExpanded);
 
-    const toggleText = btn.querySelector('.toggle-text');
+    const toggleText = btn.querySelector('.toggle-text') || btn.querySelector('span:first-child');
     if (toggleText) {
       const totalCount = PORTFOLIO_DATA.education.relevantcoursework.length;
       toggleText.textContent = isExpanded
-        ? 'Show less coursework'
-        : `See all coursework (+${totalCount - 5} more)`;
+        ? 'Show less '
+        : 'See more.... ';
     }
   });
 }

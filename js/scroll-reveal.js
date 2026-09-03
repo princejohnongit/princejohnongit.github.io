@@ -69,7 +69,7 @@ function initMouseGlow() {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       card.style.setProperty('--mouse-x', x + '%');
       card.style.setProperty('--mouse-y', y + '%');
-      card.style.background = `radial-gradient(600px circle at ${x}% ${y}%, rgba(56, 189, 248, 0.04), transparent 40%), rgba(255, 255, 255, 0.8)`;
+      card.style.background = `radial-gradient(600px circle at ${x}% ${y}%, rgba(10, 102, 194, 0.05), transparent 40%), rgba(255, 255, 255, 0.9)`;
     });
 
     card.addEventListener('mouseleave', () => {

@@ -7,30 +7,30 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
-  /* Colors — White & Red Theme */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-card: rgba(255, 255, 255, 0.8);
-  --bg-card-hover: rgba(255, 240, 240, 0.9);
-  --bg-glass: rgba(255, 255, 255, 0.85);
+  /* Colors — LinkedIn Professional Theme */
+  --bg-primary: #f4f6f8;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: rgba(240, 246, 255, 0.95);
+  --bg-glass: rgba(255, 255, 255, 0.88);
 
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a5a;
-  --text-muted: #7a7a8a;
+  --text-primary: #191919;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
 
-  --accent-blue: #dc2626;
-  --accent-violet: #b91c1c;
-  --accent-cyan: #ef4444;
-  --accent-pink: #dc2626;
-  --accent-emerald: #dc2626;
+  --accent-blue: #0a66c2;
+  --accent-violet: #004182;
+  --accent-cyan: #0a66c2;
+  --accent-pink: #0077b5;
+  --accent-emerald: #057642;
 
-  --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  --gradient-hero: linear-gradient(180deg, #ffffff 0%, #fff5f5 60%, #ffffff 100%);
-  --gradient-card-border: linear-gradient(135deg, rgba(220, 38, 38, 0.4), rgba(185, 28, 28, 0.4));
-  --gradient-glow: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(220, 38, 38, 0.04), transparent 40%);
+  --gradient-primary: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+  --gradient-hero: linear-gradient(180deg, #ffffff 0%, #f0f4f9 60%, #ffffff 100%);
+  --gradient-card-border: linear-gradient(135deg, rgba(10, 102, 194, 0.35), rgba(0, 65, 130, 0.35));
+  --gradient-glow: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(10, 102, 194, 0.05), transparent 40%);
 
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-accent: rgba(220, 38, 38, 0.3);
+  --border-subtle: rgba(140, 155, 170, 0.2);
+  --border-accent: rgba(10, 102, 194, 0.3);
 
   /* Typography */
   --font-heading: 'Space Grotesk', sans-serif;
@@ -51,10 +51,10 @@
   --border-radius-lg: 20px;
   --border-radius-xl: 28px;
 
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover: 0 12px 40px rgba(220, 38, 38, 0.1);
-  --shadow-glow-blue: 0 0 30px rgba(220, 38, 38, 0.12);
-  --shadow-glow-violet: 0 0 30px rgba(185, 28, 28, 0.12);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 12px 36px rgba(10, 102, 194, 0.12);
+  --shadow-glow-blue: 0 0 30px rgba(10, 102, 194, 0.18);
+  --shadow-glow-violet: 0 0 30px rgba(0, 65, 130, 0.18);
 
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
@@ -62,5 +62,5 @@
 
   /* Glassmorphism */
   --glass-blur: blur(16px);
-  --glass-border: 1px solid rgba(0, 0, 0, 0.08);
+  --glass-border: 1px solid rgba(140, 155, 170, 0.18);
 }

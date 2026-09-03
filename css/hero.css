@@ -41,13 +41,13 @@
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  background: rgba(220, 38, 38, 0.06);
-  border: 1px solid rgba(220, 38, 38, 0.2);
+  background: rgba(10, 102, 194, 0.08);
+  border: 1px solid rgba(10, 102, 194, 0.22);
   border-radius: 30px;
   font-size: 0.85rem;
   color: var(--accent-blue);
   margin-bottom: 28px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .hero-badge .pulse-dot {
@@ -59,8 +59,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
-  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(5, 118, 66, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(5, 118, 66, 0); }
 }
 
 .hero-title {
@@ -139,12 +139,12 @@
 .btn-primary {
   background: var(--gradient-primary);
   color: #ffffff;
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 8px 30px rgba(10, 102, 194, 0.3);
 }
 
 .btn-outline {
@@ -154,7 +154,7 @@
 }
 
 .btn-outline:hover {
-  background: rgba(220, 38, 38, 0.06);
+  background: rgba(10, 102, 194, 0.06);
   border-color: var(--accent-blue);
   transform: translateY(-2px);
 }
@@ -220,7 +220,7 @@
   object-position: top center;
   border-radius: var(--border-radius-xl);
   border: 3px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 20px 60px rgba(220, 38, 38, 0.12),
+  box-shadow: 0 20px 60px rgba(10, 102, 194, 0.12),
               0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
@@ -231,7 +231,7 @@
   right: -20px;
   width: 120px;
   height: 120px;
-  background-image: radial-gradient(rgba(220, 38, 38, 0.2) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(10, 102, 194, 0.2) 1.5px, transparent 1.5px);
   background-size: 12px 12px;
   z-index: -1;
   border-radius: 8px;
@@ -244,7 +244,7 @@
   left: -15px;
   width: 80px;
   height: 80px;
-  border: 2px solid rgba(220, 38, 38, 0.15);
+  border: 2px solid rgba(10, 102, 194, 0.15);
   border-radius: 50%;
   z-index: -1;
 }

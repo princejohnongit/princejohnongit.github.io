@@ -2,6 +2,18 @@
    MODAL — Hire Me / Personal Life scroll-triggered modal
    ============================================================ */
 
+let canTriggerModal = false;
+let userHasScrolled = false;
+
+function resetPersonalLifeScrollTrigger() {
+  canTriggerModal = false;
+  userHasScrolled = false;
+  // Delay activation to ensure view transition and scroll-to-top are complete
+  setTimeout(() => {
+    canTriggerModal = true;
+  }, 1000);
+}
+
 function initModal() {
   const plView = document.getElementById('personal-life-view');
   const plGradient = document.getElementById('pl-scroll-gradient');
@@ -20,31 +32,51 @@ function initModal() {
     if (hireModal) {
       hireModal.classList.remove('active');
       document.body.style.overflow = '';
+      userHasScrolled = false;
     }
   }
 
-  // Trigger modal on scroll-down inside the personal life page
-  if (plView) {
-    plView.addEventListener('wheel', (e) => {
-      if (e.deltaY > 0) showHireModal();
-    }, { passive: true });
-
-    let touchStartY = 0;
-    plView.addEventListener('touchstart', (e) => {
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    plView.addEventListener('touchmove', (e) => {
-      if (touchStartY - e.touches[0].clientY > 15) showHireModal();
-    }, { passive: true });
+  // Click the unlock / see more prompt at bottom of timeline
+  if (plGradient) {
+    plGradient.addEventListener('click', showHireModal);
   }
 
-  // Click the gradient prompt
-  if (plGradient) plGradient.addEventListener('click', showHireModal);
+  // Trigger modal when scrolling reaches the end of the personal life page
+  window.addEventListener('scroll', () => {
+    if (!canTriggerModal) return;
+    if (!plView || plView.style.display === 'none') return;
 
-  // Close modal
+    // Must scroll at least 200px from top before modal can trigger
+    if (window.scrollY > 200) {
+      userHasScrolled = true;
+    }
+
+    if (!userHasScrolled) return;
+
+    const scrollBottom = window.innerHeight + window.scrollY;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Trigger only when reaching the very bottom of the timeline
+    if (scrollBottom >= documentHeight - 40) {
+      showHireModal();
+    }
+  }, { passive: true });
+
+  // Close modal on close button click
   if (hireModalClose) hireModalClose.addEventListener('click', hideHireModal);
-  if (hireModal) hireModal.addEventListener('click', (e) => {
-    if (e.target === hireModal) hideHireModal();
+
+  // Close modal on outside backdrop click
+  if (hireModal) {
+    hireModal.addEventListener('click', (e) => {
+      if (e.target === hireModal) hideHireModal();
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && hireModal && hireModal.classList.contains('active')) {
+      hideHireModal();
+    }
   });
 
   // CTA button inside modal navigates to contact and closes

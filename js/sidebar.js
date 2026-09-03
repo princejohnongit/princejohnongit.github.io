@@ -169,7 +169,10 @@ function switchToView(viewName) {
         }
       });
     }
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (typeof resetPersonalLifeScrollTrigger === 'function') {
+      resetPersonalLifeScrollTrigger();
+    }
   } else {
     if (personalLifeView) personalLifeView.style.display = 'none';
     if (homeView) homeView.style.display = 'block';
