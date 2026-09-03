@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(56, 189, 248, ${this.opacity})`;
+        ctx.fillStyle = `rgba(220, 38, 38, ${this.opacity})`;
         ctx.fill();
       }
     }
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${opacity})`;
+            ctx.strokeStyle = `rgba(220, 38, 38, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -288,20 +288,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ──────────────────────────────────────────────────────────
-  // 8. SMOOTH SCROLL FOR ANCHOR LINKS
+  // 8. SMOOTH SCROLL & SPA ROUTING
   // ──────────────────────────────────────────────────────────
+  const homeView = document.getElementById('home-view');
+  const personalLifeView = document.getElementById('personal-life-view');
+
+  function switchToView(viewName) {
+    if (viewName === 'personal-life') {
+      if (homeView) homeView.style.display = 'none';
+      if (personalLifeView) {
+        personalLifeView.style.display = 'block';
+        // Re-trigger reveal animations for the new view
+        personalLifeView.querySelectorAll('.reveal').forEach(el => {
+          revealObserver.observe(el);
+        });
+      }
+      window.scrollTo({ top: 0 });
+    } else {
+      if (personalLifeView) personalLifeView.style.display = 'none';
+      if (homeView) homeView.style.display = 'block';
+    }
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+      const href = this.getAttribute('href');
+
+      if (href === '#personal-life') {
+        switchToView('personal-life');
+        window.history.pushState(null, null, href);
+      } else {
+        switchToView('home');
+        const target = document.querySelector(href);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        }
+        window.history.pushState(null, null, href);
+      }
+
+      // Close mobile menu
+      const nt = document.getElementById('nav-toggle');
+      const nl = document.getElementById('nav-links');
+      if (nt && nt.classList.contains('active')) {
+        nt.classList.remove('active');
+        nl.classList.remove('active');
       }
     });
   });
+
+  window.addEventListener('popstate', () => {
+    if (window.location.hash === '#personal-life') {
+      switchToView('personal-life');
+    } else {
+      switchToView('home');
+    }
+  });
+
+  // Initial load route check
+  if (window.location.hash === '#personal-life') {
+    switchToView('personal-life');
+  }
 
 
   // ──────────────────────────────────────────────────────────
@@ -470,6 +519,67 @@ document.addEventListener('DOMContentLoaded', () => {
         musicIcon.textContent = '🔇';
         musicLabel.textContent = 'Play Music';
       }
+    });
+  }
+
+  // ============================================================
+  //   PERSONAL LIFE — SCROLL-TRIGGERED HIRE MODAL
+  // ============================================================
+  const plView = document.getElementById('personal-life-view');
+  const plGradient = document.getElementById('pl-scroll-gradient');
+  const hireModal = document.getElementById('hire-modal');
+  const hireModalClose = document.getElementById('hire-modal-close');
+  const hireModalCta = document.getElementById('hire-modal-cta');
+
+  function showHireModal() {
+    if (hireModal && !hireModal.classList.contains('active')) {
+      hireModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function hideHireModal() {
+    if (hireModal) {
+      hireModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Trigger modal on scroll-down inside the personal life page
+  if (plView) {
+    plView.addEventListener('wheel', (e) => {
+      if (e.deltaY > 0) showHireModal();
+    }, { passive: true });
+
+    let touchStartY = 0;
+    plView.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    plView.addEventListener('touchmove', (e) => {
+      if (touchStartY - e.touches[0].clientY > 15) showHireModal();
+    }, { passive: true });
+  }
+
+  // Click the gradient prompt
+  if (plGradient) plGradient.addEventListener('click', showHireModal);
+
+  // Close modal
+  if (hireModalClose) hireModalClose.addEventListener('click', hideHireModal);
+  if (hireModal) hireModal.addEventListener('click', (e) => {
+    if (e.target === hireModal) hideHireModal();
+  });
+
+  // CTA button inside modal navigates to contact and closes
+  if (hireModalCta) {
+    hireModalCta.addEventListener('click', (e) => {
+      e.preventDefault();
+      hideHireModal();
+      switchToView('home');
+      window.history.pushState(null, null, '#contact');
+      setTimeout(() => {
+        const contactSection = document.querySelector('#contact');
+        if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     });
   }
 
